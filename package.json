@@ -1,0 +1,13 @@
+{
+  "name": "logistics-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "backend": "pnpm --filter backend start:dev",
+    "mobile": "pnpm --filter mobile start"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
