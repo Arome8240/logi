@@ -22,17 +22,21 @@ interface AppState {
   token: string | null;
   setUser: (user: User) => void;
   setToken: (token: string) => void;
+  getToken: () => string | null;
   logout: () => void;
+  clearTokens: () => void;
 }
 
 export const useStore = create<AppState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
       token: null,
       setUser: (user) => set({ user }),
       setToken: (token) => set({ token }),
+      getToken: () => get().token,
       logout: () => set({ user: null, token: null }),
+      clearTokens: () => set({ user: null, token: null }),
     }),
     {
       name: 'app-storage',
